@@ -1,25 +1,15 @@
 import { Model, DataTypes } from 'sequelize'
-import db from '../db/connection';
+import db from '../connection';
 
 interface AnimeAttributes {
-    id?: number;
+    id: number;
     name: string;
     episodes: number;
 }
 
-/*export class Anime {
-    public name: string
-    public episodes: number;
-    constructor(props: AnimeAttributes) {
-        Object.assign(this, props)
-    }
-}*/
+export class AnimeModel extends Model<AnimeAttributes> { }
 
-export class Anime extends Model<AnimeAttributes>{
-    [x: string]: any;
-}
-
-Anime.init(
+AnimeModel.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -28,7 +18,8 @@ Anime.init(
             autoIncrement: true,
         },
         name: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         },
         episodes: {
             type: DataTypes.INTEGER

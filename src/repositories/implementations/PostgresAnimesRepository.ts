@@ -3,13 +3,11 @@ import { IAnimeRepository } from "../IAnimeRepository";
 
 export class PostgresAnimesRepository implements IAnimeRepository {
 
-    private animes: Anime[] = []
     async find(): Promise<Anime[]> {
-        const animes = this.animes;
-        return animes;
+        return await Anime.findAll()
     }
 
     async save(anime: Anime): Promise<void> {
-        this.animes.push(anime);
+        await Anime.create({ name: anime.name, episodes: anime.episodes })
     }
 }

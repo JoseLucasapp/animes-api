@@ -3,7 +3,17 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return await queryInterface.createTable('animes', { id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true }, name: Sequelize.STRING, episodes: Sequelize.INTEGER })
+    return await queryInterface.createTable('animes', {
+      id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+      name: Sequelize.STRING,
+      episodes: Sequelize.INTEGER,
+      createdAt: {
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        type: Sequelize.DATE
+      },
+    })
     /**
      * Add altering commands here.
      *
