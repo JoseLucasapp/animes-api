@@ -4,7 +4,7 @@ import { createAnimeController } from "./useCases/animes/CreateAnime";
 const router = Router()
 
 router.post('/animes', (request: Request, response: Response) => {
-    return createAnimeController
+    return createAnimeController.handle(request, response)
 })
 
 export { router }

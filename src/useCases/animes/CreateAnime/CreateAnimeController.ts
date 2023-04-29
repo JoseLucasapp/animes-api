@@ -8,13 +8,11 @@ export class CreateAnimeController {
 
         try {
             await this.createAnimeUseCase.execute({ name, episodes })
-            return response.status(201).send()
+            return response.status(201).json({})
         } catch (error) {
             return response.status(400).json({
                 message: error.message || 'Unexpected error'
             })
         }
-
-
     }
 }
